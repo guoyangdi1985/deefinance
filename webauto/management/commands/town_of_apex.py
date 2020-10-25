@@ -10,7 +10,7 @@ import time
 class Command(BaseCommand):
     help = 'Automation 100%. This is a selenium automation for town of Apex bill payment for electric' \
            'and water utilities.'
-    BROWSER_DRIVER_PATH = '/Users/Mac/chromedriver'
+    BROWSER_DRIVER_PATH = 'D:\djangoprojects\deefinance\chromedriver'
     TOWN_OF_APEX_LOGIN_PAGE = 'https://secure.apexnc.org/eSuite.Utilities/default.aspx'
 
     def handle(self, *args, **options):
@@ -35,8 +35,10 @@ class Command(BaseCommand):
         # Personal information
         first_name_field = browser.find_element_by_id('ctl00_ctl00_Content_MainContentPlaceHolder_uxFirstName')
         last_name_field = browser.find_element_by_id('ctl00_ctl00_Content_MainContentPlaceHolder_uxLastName')
-        first_name_field.send_keys('Guoyang')
-        last_name_field.send_keys('Di')
+        # Extract card holder first name and last name.
+        first_name, last_name = credit_card.card_holder_name.split(' ')
+        first_name_field.send_keys(first_name)
+        last_name_field.send_keys(last_name)
         street_address, city, state, zip_code = credit_card.billing_address.split(', ')
         address_field = browser.find_element_by_id('ctl00_ctl00_Content_MainContentPlaceHolder_uxStreetAddress')
         address_field.send_keys(street_address)
