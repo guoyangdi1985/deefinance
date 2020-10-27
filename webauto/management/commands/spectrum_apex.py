@@ -8,7 +8,7 @@ import time
 
 class Command(BaseCommand):
     help = 'Automation 90%. This is a selenium automation for spectrum bill payment.'
-    BROWSER_DRIVER_PATH = '/Users/Mac/chromedriver'
+    BROWSER_DRIVER_PATH = 'D:\djangoprojects\deefinance\chromedriver'
     SPECTRUM_LOGIN_PAGE = 'https://www.spectrum.net/login'
 
     def handle(self, *args, **options):
