@@ -8,7 +8,7 @@ import time
 
 
 class Command(BaseCommand):
-    help = 'Automation 90%. This is a selenium automation for spectrum bill payment.'
+    help = 'Automation 100%. This is a selenium automation for City of Raleigh utility bill payment.'
     BROWSER_DRIVER_PATH = 'D:\djangoprojects\deefinance\chromedriver'
     CITY_OF_RALEIGH_LOGIN_PAGE = 'https://ubwss.raleighnc.gov/login'
 
