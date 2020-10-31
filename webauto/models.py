@@ -15,6 +15,9 @@ class BankDraft(models.Model):
     routing_number = models.CharField(max_length=20)
     account_hold_name = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.bank_name
+
 
 class Credential(models.Model):
     creditcards = models.ManyToManyField(CreditCard, blank=True, null=True)
@@ -25,3 +28,5 @@ class Credential(models.Model):
     username = models.CharField(max_length=30)
     password = models.CharField(max_length=30)
 
+    def __str__(self):
+        return self.payment_of_credential
