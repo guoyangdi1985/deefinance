@@ -11,8 +11,8 @@ class CreditCard(models.Model):
 
 class BankDraft(models.Model):
     bank_name = models.CharField(max_length=20)
-    account_number = models.IntegerField()
-    routing_number = models.IntegerField()
+    account_number = models.CharField(max_length=20)
+    routing_number = models.CharField(max_length=20)
     account_hold_name = models.CharField(max_length=30)
 
 
