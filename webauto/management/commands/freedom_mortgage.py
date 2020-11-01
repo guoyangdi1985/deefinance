@@ -40,7 +40,8 @@ class Command(BaseCommand):
         time.sleep(2)
         acct_num_field_confirm = browser.find_element_by_id('input_74')
         acct_num_field_confirm.send_keys(bank.account_number)
-        # TODO Need to capture the OK button
+        btn = browser.find_elements_by_tag_name('button')[13]
+        btn.click()
         time.sleep(2)
         routing_num_field = browser.find_element_by_id('input_11')
         routing_num_field.send_keys(bank.routing_number)
@@ -54,8 +55,7 @@ class Command(BaseCommand):
         state_option = browser.find_element_by_id('select_option_47')
         state_option.click()
         time.sleep(3)
-        # submit_btn = browser.find_element_by_id('btn-primary')
-        # submit_btn.click()
-
-
+        submit_btn = browser.find_element_by_id('btn-primary')
+        submit_btn.click()
+        time.sleep(7)
         self.stdout.write(self.style.SUCCESS('Complete!!!!'))
