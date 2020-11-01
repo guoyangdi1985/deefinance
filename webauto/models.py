@@ -14,6 +14,8 @@ class BankDraft(models.Model):
     account_number = models.CharField(max_length=20)
     routing_number = models.CharField(max_length=20)
     account_hold_name = models.CharField(max_length=30)
+    city = models.CharField(max_length=20)
+    state = models.CharField(max_length=20)
 
     def __str__(self):
         return self.bank_name
