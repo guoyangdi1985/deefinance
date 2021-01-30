@@ -10,13 +10,13 @@ import time
 class Command(BaseCommand):
     help = 'Automation 100%. This is a selenium automation for City of Raleigh utility bill payment.'
     BROWSER_DRIVER_PATH = 'D:\djangoprojects\deefinance\chromedriver'
-    CITY_OF_RALEIGH_LOGIN_PAGE = 'https://myaccount.freedommortgage.com/'
+    FREEDOMMORTGAGE_LOGIN_PAGE = 'https://myaccount.freedommortgage.com/'
 
     def handle(self, *args, **options):
         # Load the browser driver.
         browser = webdriver.Chrome(self.BROWSER_DRIVER_PATH)
         # Go to freedom mortgage login page.
-        browser.get(self.CITY_OF_RALEIGH_LOGIN_PAGE)
+        browser.get(self.FREEDOMMORTGAGE_LOGIN_PAGE)
         credential = Credential.objects.get(payment_of_credential='freedom mortgage')
         username_field = browser.find_element_by_id('login_userName')
         username_field.send_keys(credential.username)
